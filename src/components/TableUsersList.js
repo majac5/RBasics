@@ -1,27 +1,36 @@
-import React from "react";
-import './TableUsersList.css';
+import React, { useContext } from "react";
+import "./TableUsersList.css";
+import UserContext from "../App";
 
 const TableUsersList = (props) => {
+  const { users } = props;
 
-    return (
-        <div>
-            <table className="table__main">
-                <tr className="table__row">
-                <th className="table__head">name</th>
-                <th className="table__head">age</th>
-                <th className="table__head">interest</th>
-                </tr>
+  const globalData = useContext(UserContext);
 
-                <tr className="table__row">
-                <td className="table__data">{props.name}</td>
-                <td className="table__data">{props.age}</td>
-                <td className="table__data">{props.interest}</td>
-                </tr>
+  return (
+    <div>
+      <table className="table__main">
+        <tbody>
+          <tr className="table__row">
+            <th className="table__head">name</th>
+            <th className="table__head">age</th>
+            <th className="table__head">interest</th>
+          </tr>
+          {users?.map((el, indx) => {
+            return (
+              <tr className="table__row" key={indx}>
+                <td className="table__data">{el?.name}</td>
+                <td className="table__data">{el?.age}</td>
+                <td className="table__data">{el?.interest}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
 
-            </table>
-
-        </div>
-    );
-}
+      <div style={{ backgroundColor: "red" }}>{globalData}</div>
+    </div>
+  );
+};
 
 export default TableUsersList;

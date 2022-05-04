@@ -1,43 +1,52 @@
 import React, { useState } from "react";
-import './Array.css';
+import "./Array.css";
 import PopUp from "./PopUp";
 
 const Array = () => {
+  const [array, setArray] = useState([
+    "Sweater",
+    "Cola ",
+    "Potato Chips ",
+    "Pudddddding ",
+  ]);
 
-    const [array, setArray] = useState([
-        "Sweater", "Cola ", "Potato Chips ", "Pudddddding "
-    ]); 
+  const addArray = (newUser) => {
+    setArray([...array, newUser]);
+  };
 
-    const addArray = (newUser) => {
-        setArray([...array, newUser])
-        };
+  const [isOpen, setIsOpen] = useState(false);
 
+  const togglePopUp = () => {
+    setIsOpen(!isOpen);
+    let person = prompt("Please enter your name", "Harry Potter");
+    addArray(" " + person + " ");
+  };
 
-   const [isOpen, setIsOpen] = useState(false);
+  array.sort();
 
-   const togglePopUp = () => {
-       setIsOpen(!isOpen);
-   }
+  return (
+    <>
+      <h1>{array}</h1>
+      <div></div>
 
-   array.sort();
+      <button onClick={togglePopUp}> click to open popup</button>
 
-   
+      {/* <button onClick={() => addArray(array)}>CLICK MEEE TOO AADDDDDD</button> */}
 
-    return (
-        <>
-        <h1>{array}</h1>
-        <div></div>
-
-        <button onClick={togglePopUp}> click to open popup</button>
-
-        {/* <button onClick={() => addArray(array)}>CLICK MEEE TOO AADDDDDD</button> */}
-
-{isOpen && <PopUp handleClose={togglePopUp} content={ <div> <div>choose wisely</div> </div> } onAddUser={addArray} >
-
-</PopUp>}
-
-        </>
-    );
-}
+      {isOpen && (
+        <PopUp
+          handleClose={togglePopUp}
+          content={
+            <div>
+              {" "}
+              <div>choose wisely</div>{" "}
+            </div>
+          }
+          onAddUser={addArray}
+        ></PopUp>
+      )}
+    </>
+  );
+};
 
 export default Array;
