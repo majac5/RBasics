@@ -1,0 +1,26 @@
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+.popup__box {  
+    position: relative;
+    width: 28%;
+    min-height: 139px;
+    background-color: lavender;
+    margin: 20px auto;
+    padding: 20px;
+    overflow: auto;
+    border-radius: 17px;
+}
+
+.popup__close {
+    cursor: crosshair;
+    border: 1px solid yellow;
+    border-radius: 2px;
+    position: fixed;
+    top: 25px;
+}

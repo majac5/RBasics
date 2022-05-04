@@ -1,0 +1,4 @@
+.table__main, .table__row, .table__head, .table__data {
+    border: 1px solid #000;
+    padding: 20px;
+}
