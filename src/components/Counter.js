@@ -1,28 +1,36 @@
 import React, { useState } from "react";
+import PopUpTwo from './PopUpTwo';
 
 const Counter = () => {
   const [counter, setCounter] = useState(0);
-
+  const [isOpen, setIsOpen] = useState(false);
+  
   const counterHandler = () => {
     setCounter((count) => count + 1);
+
+    if (counter === 5) {
+      setIsOpen(!isOpen);
+    }
+    if (counter === 10) {
+      setIsOpen(!isOpen);
+    }
+    
   };
 
-  if (counter === 5) {
-    return setCounter(
-      <a
-        href="https://youtu.be/dQw4w9WgXcQ"
-        target="_blank"
-        rel="noreferrer noopener"
-      >
-        important message
-      </a>
-    );
-  }
+  console.log(counter);
+
+  const togglePopUp = () => {
+    setIsOpen(!isOpen);
+}
+
 
   return (
     <>
       <div>{counter}</div>
       <button onClick={counterHandler}>DODAJ BROJ</button>
+{isOpen && <PopUpTwo handleClose={togglePopUp}>
+</PopUpTwo>}
+
     </>
   );
 };

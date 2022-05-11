@@ -1,7 +1,18 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import TableAddUser from "./components/TableAddUser";
+import ButtonWisdom from "./components/ButtonWisdom";
+import Parent from './components/Parent';
+import DeComponentHaha from "./components/DeComponentHaha";
+import Harry from './components/Harry';
+import Array from "./components/Array";
+import Reduce from "./components/Reduce";
+import UserLoader from './components/UserLoader';
+import Counter from "./components/Counter";
+import EffectExample from "./components/EffectExample";
+import Storage from "./components/Storage";
+import SwitchReducer from "./components/SwitchReducer";
+import ContextOne from "./components/ContextOne";
 
 function App() {
   // const initialState = { count: 0 };
@@ -51,19 +62,40 @@ function App() {
   //   }
   // }
 
-  function Home() {
-    return <h2>Home</h2>;
-  }
+//   function Home() {
+//     return <h2>Home</h2>;
+//   }
 
-  function About() {
-    return <h2>About</h2>;
-  }
+//   function About() {
+//     return <h2>About</h2>;
+//   }
 
-  function Users() {
-    return <h2>Users</h2>;
-  }
+//   function Users() {
+//     return <h2>Users</h2>;
+//   }
 
-  return <div>App</div>;
+//   return <div>App</div>;
+// }
+
+return (
+  <div className="App">
+
+      <ButtonWisdom />
+      <Parent />
+      <DeComponentHaha />
+      <Harry />
+      <Array />
+      <Reduce />
+      <UserLoader />
+      <Counter />
+      <TableAddUser />
+      <EffectExample />
+      <Storage />
+      {/* <SwitchReducer /> */}
+      {/* <ContextOne /> */}
+    </div>
+);
+
 }
 
 export default App;

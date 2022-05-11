@@ -1,19 +1,30 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import "./TableAddUser.css";
 import TableUsersList from "./TableUsersList";
 
 const TableAddUser = () => {
   const [users, setUsers] = useState([]);
+  const [hide, setHide] = useState(false);
+
+  const showHandler = () => {
+    setHide(true)
+  }
 
   // useEffect(() => {}, [users]);
 
   const enteredName = useRef();
   const enteredAge = useRef();
   const enteredInterest = useRef();
+  const enteredIndex = useRef();
   // const enteredInput = (event) => {
   //   event.preventDefault();
   //   const enteredNameRef = enteredName.current.value;
   //   props.onAddUser(enteredNameRef);
+
+
+  // const array = [...users]; 
+  // const newArray = array.splice(enteredIndex, 3);
+  
 
   return (
     <>
@@ -28,7 +39,7 @@ const TableAddUser = () => {
           Add User
         </button>
       </form> */}
-      <form
+      <form 
         method="post"
         onSubmit={(e) => {
           e.preventDefault();
@@ -49,9 +60,13 @@ const TableAddUser = () => {
         <input id="age" type="number" ref={enteredAge}></input>
         <label htmlFor="age">Interest</label>
         <input id="interest" type="text" ref={enteredInterest}></input>
-        <button type="submit">Add User</button>
+        <button type="submit" onClick={showHandler}>Add User</button>
+        {/* <label htmlFor="delete">Remove row</label>
+        <input id="delete" type="number" ref={enteredIndex}></input> */}
+        <button></button>
       </form>
-      <TableUsersList users={users} />
+      {users.length !== 0 ? <TableUsersList users={users} /> : null}
+      {/* <div>{newArray}</div> */}
     </>
   );
 };
